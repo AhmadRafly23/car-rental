@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/auth";
+import { clearMessage } from "../actions/message";
+
+import { history } from "../helpers/history";
+
+// import AuthVerify from "./common/AuthVerify";
+import EventBus from "../common/EventBus";
+
+import { Link } from "react-router-dom";
 
 function NavbarProduct() {
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    history.listen((location) => {
+      dispatch(clearMessage()); // clear message when changing location
+    });
+  }, [dispatch]);
+
+  const logOut = useCallback(() => {
+    dispatch(logout());
+  }, [dispatch]);
+
+  useEffect(() => {
+    EventBus.on("logout", () => {
+      logOut();
+    });
+
+    return () => {
+      EventBus.remove("logout");
+    };
+  }, [logOut]);
+
   return (
     <>
       <div id="navbar">
@@ -37,9 +70,15 @@ function NavbarProduct() {
                 <a className="nav-link me-4" href="#/">
                   FAQ
                 </a>
-                <a className="nav-link btn" href="#/">
-                  Register
-                </a>
+                {isLoggedIn ? (
+                  <Link className="nav-link btn" onClick={logOut} to={"/"}>
+                    Logout
+                  </Link>
+                ) : (
+                  <Link className="nav-link btn" to={"/register"}>
+                    Register
+                  </Link>
+                )}
               </div>
             </div>
           </nav>
