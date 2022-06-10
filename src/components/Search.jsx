@@ -9,12 +9,16 @@ function Search() {
   const { datas } = useParams();
   const data = useSelector((state) => state.filterData.data);
   const dispatch = useDispatch();
+  const alamat = window.location.href;
 
   useEffect(() => {
-    dispatch(setCars(data));
-    // eslint-disable-next-line
+    {
+      alamat === "https://car-rental-binar.herokuapp.com/pagesearch"
+        ? dispatch(setCars(data))
+        : dispatch(setCars(datas));
+    }
   }, [datas]);
-  const alamat = window.location.href;
+
   console.log(alamat);
   return (
     <>
@@ -77,21 +81,7 @@ function Search() {
                   </label>
                 </form>
               </div>
-              {/* <div>
-                {alamat === "http://localhost:3000/pagesearch"
-                  ? "Halaman 1"
-                  : "Halaman 2"}
-              </div> */}
               <div className="button-search">
-                {/* {alamat === "http://localhost:3000/pagesearch" ? (
-                  <Link className="btn" to={`/searchresult/${data}`}>
-                    Cari Mobil
-                  </Link>
-                ) : (
-                  <Link className="btn" to={`/searchresult/${datas}`}>
-                    Cari Mobil
-                  </Link>
-                )} */}
                 <Link className="btn" to={`/searchresult/${data}`}>
                   Cari Mobil
                 </Link>

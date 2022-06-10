@@ -9,7 +9,10 @@ function SidebarBlue() {
     <>
       <div className="col-1 vh-100 position-fixed sidebar">
         <img src={icon} className="icon-sidebar" alt="rectangle" />
-        <Link to={"/"} className="sidebar-content pt-2 text-decoration-none">
+        <Link
+          to={"/pageadmin"}
+          className="sidebar-content pt-2 text-decoration-none"
+        >
           <img src={home} alt="home" />
           <p>Dashboard</p>
         </Link>

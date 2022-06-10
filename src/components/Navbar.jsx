@@ -1,11 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ContentAdmin from "./ContentAdmin";
 import iconNav from "../images/Rectangle62.png";
 import hamburgerMenu from "../images/fi_menu.png";
 import profileNavbar from "../images/Group15.png";
 import ContentCar from "./ContentCar";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/auth";
+import { clearMessage } from "../actions/message";
+import { history } from "../helpers/history";
+import EventBus from "../common/EventBus";
+import { Link } from "react-router-dom";
 
 function Navbar({ showSidebar }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    history.listen((location) => {
+      dispatch(clearMessage()); // clear message when changing location
+    });
+  }, [dispatch]);
+
+  const logOut = useCallback(() => {
+    dispatch(logout());
+  }, [dispatch]);
+
+  useEffect(() => {
+    EventBus.on("logout", () => {
+      logOut();
+    });
+
+    return () => {
+      EventBus.remove("logout");
+    };
+  }, [logOut]);
   return (
     <>
       <div className="row">
@@ -38,9 +65,9 @@ function Navbar({ showSidebar }) {
                     aria-labelledby="dropdownMenuButton1"
                   >
                     <li>
-                      <a className="dropdown-item" href="#">
+                      <Link className="dropdown-item" onClick={logOut} to={"/"}>
                         Logout
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
