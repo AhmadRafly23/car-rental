@@ -1,0 +1,26 @@
+.form-label {
+  color: #3c3c3c;
+  font-size: 12px;
+}
+
+.input-newcar {
+  width: 35%;
+  padding: 9px 12px;
+}
+
+.btn-cancel {
+  padding: 8px 12px;
+  background-color: white;
+  border: 2px solid #0d28a6;
+  color: #0d28a6;
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.btn-save {
+  padding: 8px 12px;
+  background-color: #0d28a6;
+  border: 2px solid #0d28a6;
+  color: white;
+  font-weight: bold;
+}

@@ -1,0 +1,126 @@
+.navbar {
+  background-color: #f1f3ff;
+  padding: 1.2rem 8.5rem;
+}
+
+.nav-link {
+  font-size: 14px;
+  font-weight: 400;
+  color: black !important;
+}
+
+.btn {
+  color: white !important;
+  font-weight: bold;
+  background-color: #5cb85f;
+  padding: 0.5rem 0.75rem;
+}
+
+.btn:hover {
+  background-color: #0d28a6;
+}
+
+#hero-section {
+  background-color: #f1f3ff;
+  margin-top: 78px;
+}
+
+#search-section {
+  margin-top: -3rem;
+}
+
+.content-search {
+  background-color: white;
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  border: 1px solid #d0d0d0;
+}
+
+.item-search {
+  width: 210px;
+  margin-right: 1rem;
+}
+
+.category,
+.dropdown-item {
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 4px;
+  font-weight: lighter;
+  display: flex;
+  justify-content: space-between;
+  align-items: center !important;
+}
+
+.button-search {
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-penumpang {
+  border: 1px solid #d0d0d0;
+  height: 40px;
+  padding: 0 9px;
+}
+
+.input-penumpang {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0 !important;
+}
+
+::placeholder {
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: lighter;
+}
+
+.btn-driver,
+.btn-date,
+.btn-time {
+  appearance: none;
+}
+
+.btn-driver + .fa-solid {
+  float: right;
+  margin-top: -28px;
+  margin-right: 10px;
+  color: black !important;
+  padding-right: 5px;
+}
+
+.btn-date + .fa-regular {
+  float: right;
+  margin-top: -28px;
+  margin-right: 10px;
+  color: black !important;
+  padding-right: 5px;
+}
+
+.btn-time + .fa-regular {
+  float: right;
+  margin-top: -28px;
+  margin-right: 10px;
+  color: black !important;
+  padding-right: 5px;
+}
+
+.form-control {
+  font-size: 12px;
+  height: 40px;
+  width: 210px;
+  border-radius: 0;
+}
+
+.card-detail {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.card-detail p {
+  margin-left: 0.5rem;
+  margin: 0;
+}
