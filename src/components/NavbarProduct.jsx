@@ -2,12 +2,8 @@ import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../actions/auth";
 import { clearMessage } from "../actions/message";
-
 import { history } from "../helpers/history";
-
-// import AuthVerify from "./common/AuthVerify";
 import EventBus from "../common/EventBus";
-
 import { Link } from "react-router-dom";
 
 function NavbarProduct() {
